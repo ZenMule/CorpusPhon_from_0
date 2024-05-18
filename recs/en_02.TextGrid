@@ -1,0 +1,18 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 3.6440816326530614 
+tiers? <exists> 
+size = 1 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "sent" 
+        xmin = 0 
+        xmax = 3.6440816326530614 
+        intervals: size = 1 
+        intervals [1]:
+            xmin = 0 
+            xmax = 3.6440816326530614 
+            text = "You should go talk to your advisor." 
