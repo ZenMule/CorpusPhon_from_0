@@ -60,8 +60,11 @@ Anaconda安装以后在开始菜单搜索栏中搜索Anaconda Prompt，应该可
 
 安装完后去到VS CODE的插件(extension)页面把和Python和Jupyter notebook有关的“官方”插件都安装上就可以了。
 
-![VSCODE Python插件](python.png)
-![VSCODE Jupyter插件](jupyter.png)
+| ![VSCODE Python插件](python.png) | ![VSCODE Jupyter插件](jupyter.png) |
+|:------------------------------------------:|:------------------------------------------:|
+|         VSCODE Python插件              |         VSCODE Jupyter插件              |
+
+
 
 ### MFA简单功能展示
 
