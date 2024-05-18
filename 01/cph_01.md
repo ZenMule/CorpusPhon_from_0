@@ -1,3 +1,4 @@
+#! https://zhuanlan.zhihu.com/p/698534635
 # 语音语料库研究方法入门01: Montreal Forced Aligner（蒙特利尔强制对齐工具）
 
 友情提示：鉴于绝大多数人应该使用的还是Windows平台的电脑，所以以下讲解全部基于Windows操作系统。苹果用户的操作和以下步骤其实也只有略微不同，为了方便起见我就不赘述了。
@@ -39,17 +40,17 @@ MFA的安装需要经由[Conda Forge](https://conda-forge.org/)，所以我们�
 
 Anaconda安装以后在开始菜单搜索栏中搜索Anaconda Prompt，应该可以看到以下结果：
 
-![Image](anac.png)
+![Anaconda](anac.png)
 
 点选以管理员身份运行。这里为了以后打开Anaconda Prompt方便建议打开后右键点击任务栏上的图标然后选择“固定到任务栏”。打开以后应该可以看到这个窗口：
 
-![Image](prompt.png)
+![Anaconda Prompt](prompt.png)
 
 在窗口中可以看到排头有一个(base)提示。这表明当前命令行在Anaconda的base环境中。然后我们输入这个命令：`conda create -n aligner -c conda-forge montreal-forced-aligner`创建一个名为aligner的虚拟环境并且经由`conda-forge`安装MFA即MFA所需的各种软件，包括Kaldi、scikit-learn和numpy等等。安装中途会让你确认是否继续(Proceed \[y/n\]?)，这时按一下`y`并且回车就可以开始安装了。
 
 安装完毕以后会出现以下提示：
 
-![Image](mfa_installed.png)
+![MFA安装完毕](mfa_installed.png)
 
 如果要进入这个为MFA创建的虚拟环境可以按照提示输入`conda activate aligner`然后回车确认就可以了。
 
@@ -59,8 +60,8 @@ Anaconda安装以后在开始菜单搜索栏中搜索Anaconda Prompt，应该可
 
 安装完后去到VS CODE的插件(extension)页面把和Python和Jupyter notebook有关的“官方”插件都安装上就可以了。
 
-![Image](python.png)
-![Image](jupyter.png)
+![VSCODE Python插件](python.png)
+![VSCODE Jupyter插件](jupyter.png)
 
 ### MFA简单功能展示
 
@@ -70,13 +71,13 @@ Anaconda安装以后在开始菜单搜索栏中搜索Anaconda Prompt，应该可
 
 下载完成以后从Windows的文件管理器中找到文档下面的MFA文件夹：
 
-![Image](mfa_dir.png)
+![MFA文件夹](mfa_dir.png)
 
 然后进入`pretrained_models`文件夹。在这个文件夹的`acoustic`子文件夹中可以看到刚才下载的英语声学模型`english_us_arpa.zip`，然后在`dictionary`子文件夹中可以看到发音此单`english_us_arpa.dict`。前者是一个压缩成.zip格式的文件，后者是一个CMU发音词典的文件格式。注意发音词典不一定需要存储为.dict格式，.txt也是可以的。
 
 如果我们有现成的标好了说话内容（句子层面）的录音数据的化就可以使用这个模型和发音词典做自动标注了。
 
-![Image](recs_ex.png)
+![一些我自己的英语录音](recs_ex.png)
 
 在标注之前先validate一下语料。在命令窗口里输入：`mfa validate --ignore_acoustics --clean C:\Users\samfi\Desktop\CorpusPhon_from_0\recs english_us_arpa english_us_arpa`。
 
@@ -84,14 +85,14 @@ Anaconda安装以后在开始菜单搜索栏中搜索Anaconda Prompt，应该可
 
 该命令运行顺利的话会提示：
 
-![Image](validate.png)
+![Validate语料库](validate.png)
 
 然后我们运行`mfa align --clean C:\Users\samfi\Desktop\CorpusPhon_from_0\recs english_us_arpa english_us_arpa C:\Users\samfi\Desktop\CorpusPhon_from_0\output`进行强制对齐。注意千万不要忘记加那个--clean选项，不然的话可能导致MFA无法运行。如果运行顺利的话可以看到如下画面：
 
-![Image](aligning.png)
+![顺利运行强制对齐](aligning.png)
 
 然后我们看到在同一个文件夹中生成了一个新文件夹output，打开output里面的TextGrid文件和recs文件夹里的同名录音文件可以检查强制对齐的结果。可以看到MFA自带的这个英语模型是非常好用的。即使这是我用电脑自带的麦克风录的我自己的非母语英语片段，依然精确地找到了各个音的边界和标签。
 
-![Image](alignment.png)
+![强制对齐结果](alignment.png)
 
 本教程的所有教学材料都可以在我的[GitHub]https://github.com/ZenMule/CorpusPhon_from_0)上找到。
