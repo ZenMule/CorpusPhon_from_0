@@ -98,4 +98,4 @@ Anaconda安装以后在开始菜单搜索栏中搜索Anaconda Prompt，应该可
 
 ![强制对齐结果](alignment.png)
 
-本教程的所有教学材料都可以在我的[GitHub]https://github.com/ZenMule/CorpusPhon_from_0)上找到。
+本教程的所有教学材料都可以在我的[GitHub](https://github.com/ZenMule/CorpusPhon_from_0)上找到。
