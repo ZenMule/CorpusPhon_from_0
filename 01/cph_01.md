@@ -32,7 +32,7 @@ MFA是一个语音强制对齐工具，其构架基于Kaldi自动语音识别工
 
 ### 安装Anaconda
 
-MFA的安装需要经由[Conda Forge](https://conda-forge.org/)，所以我们首先需要安装Miniconda或者Anaconda。Miniconda和Anaconda的区别可以理解为anaconda的瘦身简装版，其预装的python包比anaconda要少得多。但是我个人建议一步到位安装Anaconda，因为如果涉及到做语料库语言学的话有很多数据处理工具都需要在python环境下使用。对于配置Python编程环境没有多少经验的人来说，安装Anaconda可以几乎一步到位配置好日常所需要的很多数据处理工具。不然后来要到处安装各种包。对于使用Python熟练的人来说这些完全是不成问题的。但是如果您是语言学专业研究生的话，那么我估计是没有太多Python使用经验的，还是让安装程序能帮你包办多少就包办多少比较好。后面再在使用过程中慢慢学习就好了。
+MFA的安装需要经由[Conda Forge](https://conda-forge.org/)，所以我们首先需要安装Miniconda或者Anaconda。Miniconda和Anaconda的区别可以理解为miniconda是anaconda的瘦身简装版，其预装的python包比anaconda要少得多。但是我个人建议一步到位安装Anaconda，因为如果涉及到做语料库语言学的话有很多数据处理工具都需要在python环境下使用。对于配置Python编程环境没有多少经验的人来说，安装Anaconda可以几乎一步到位配置好日常所需要的很多数据处理工具。不然后来要到处安装各种包。对于使用Python熟练的人来说这些完全是不成问题的。但是如果您是语言学专业研究生的话，那么我估计是没有太多Python使用经验的，还是让安装程序能帮你包办多少就包办多少比较好。后面再在使用过程中慢慢学习就好了。
 
 那么我们首先从这个[网址](https://www.anaconda.com/download/)下载Anaconda。安装文件下载到电脑上以后跟随提示完成安装就可以了。安装完毕以后会自动打开Anaconda浏览器（注意，这个程序不是Anaconda本身）。友情提示：如果使用conda的话不用另行再自己去安装Python了。Conda下载安装完成以后已经帮你把base使用环境里的Python安装好了。另行下载一个Python版本反倒会导致你电脑上的Python版本打架，对于不熟练的初学者来说管理这些环境也是个比较让人头疼的事儿。所以我们能简则简。
 
@@ -60,10 +60,8 @@ Anaconda安装以后在开始菜单搜索栏中搜索Anaconda Prompt，应该可
 
 安装完后去到VS CODE的插件(extension)页面把和Python和Jupyter notebook有关的“官方”插件都安装上就可以了。
 
-| ![VSCODE Python插件](python.png) | ![VSCODE Jupyter插件](jupyter.png) |
-|:------------------------------------------:|:------------------------------------------:|
-|         VSCODE Python插件              |         VSCODE Jupyter插件              |
-
+![VSCODE Python插件](python.png)
+![VSCODE Jupyter插件](jupyter.png)
 
 
 ### MFA简单功能展示
