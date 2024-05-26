@@ -305,8 +305,9 @@ t͡s aː p̚
 ```python
 yue_dict = []
 for word, trans in zip(yue_words, yue_trans):
-    entry = word + '\t' + trans
-    yue_dict.append(entry)
+    if trans != '': # 只有当国际音标转写不为空的时候才保存到词典
+        entry = word + '\t' + trans
+        yue_dict.append(entry)
 for entry in yue_dict[0:9]:
     print(entry)
 ```
