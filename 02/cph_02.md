@@ -341,6 +341,8 @@ print("The dictionary is saved to:", dict_file)
 The dictionary is saved to: C:\Users\samfi\Downloads\cv_yue\cv-corpus-17.0-2024-03-15\yue\yue_dict.txt
 ```
 
-以上我们就完成了所有运行MFA训练声学模型所需的预处理步骤，生成了标记好了的语料库和一个发音词典。下一讲我们会继续讲解利用MFA训练模型和自动标注。本讲的所有材料都可以在[GitHub](https://github.com/ZenMule/CorpusPhon_from_0)上找到。
+以上我们就完成了运行MFA训练声学模型所需的预处理步骤一，生成一个MFA所需的发音词典。下一讲我们会继续讲解批量生成textgrid并且利用MFA训练模型和自动标注。
+
+本讲的所有材料都可以在[GitHub](https://github.com/ZenMule/CorpusPhon_from_0)上找到。
 
 如果有不懂的欢迎在评论区留下你的问题。
