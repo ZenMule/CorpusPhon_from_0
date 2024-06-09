@@ -181,3 +181,7 @@ mfa align --clean C:\Users\samfi\Downloads\yue\validated C:\Users\samfi\Download
 对齐结果如下所示：
 
 ![对齐结果](output.png)
+
+这样，对齐以后的语音语料库就建立完毕了。从下一讲开始我们会探索如何在此基础上取值并且进行语音学分析。
+
+本讲的所有材料都可以在[GitHub](https://github.com/ZenMule/CorpusPhon_from_0)上找到。
