@@ -1,5 +1,5 @@
 #! https://zhuanlan.zhihu.com/p/699869621
-# 语音语料库研究方法入门02: 建立自己的语料库
+# 语音语料库研究方法入门02: 建立自己的语料库(1) - 生成发音词典
 
 这一讲我们要进行为了跑MFA模型而进行的语料库数据的预处理。这里我们以Common Voice语料库上的粤语数据为例讲解如何把只有录音的语料库构建为方便MFA进行建模的结构。为此我们首先要搭建一个所有录音文件都有对应的标注信息(textgrid格式)的语料库，然后要生成一个发音词典，把每个单词的读音以国际音标的形式标注出来（此一步不一定必须要用国际音标，X-SAMPA或者ARPABET或其他体系的符号都可以）。
 
@@ -48,7 +48,7 @@ Common Voice上的数据由于是由广大网友贡献的。所以有一些数�
 ```python
 import pandas as pd
 import csv
-valid_path = r'C:\Users\samfi\Downloads\cv_yue\cv-corpus-17.0-2024-03-15\yue\validated.tsv' # 地址前要加r（苹果用户不用），不然路径无法识别
+valid_path = r'C:\Users\samfi\Downloads\yue\validated.tsv' # 地址前要加r（苹果用户不用），不然路径无法识别
 valid_df = pd.read_csv(valid_path, sep = '\t', 
                         quoting=csv.QUOTE_NONE, 
                         low_memory = False, 
@@ -89,7 +89,7 @@ print('说话人编号：', valid_df['speaker_id'].unique().min(), '-', valid_df
 
 ```python
 import os
-root_dir = r"C:\Users\samfi\Downloads\cv_yue\cv-corpus-17.0-2024-03-15\yue" # 替换为你电脑上的文件夹路径
+root_dir = r"C:\Users\samfi\Downloads\yue" # 替换为你电脑上的文件夹路径
 source_folder = os.path.join(root_dir, "clips") # 源文件夹路径（移出位置）
 target_folder = os.path.join(root_dir, "validated") # 目标文件夹路径（移入位置）
 file_names = valid_df['path'].tolist()
@@ -305,7 +305,7 @@ t͡s aː p̚
 ```python
 yue_dict = []
 for word, trans in zip(yue_words, yue_trans):
-    if trans != '': # 只有当国际音标转写不为空的时候才保存到词典
+    if trans.strip() != '': # 只有当国际音标转写不为空的时候才保存到词典
         entry = word + '\t' + trans
         yue_dict.append(entry)
 for entry in yue_dict[0:9]:
@@ -329,7 +329,7 @@ CMU发音词典形式的输出结果如下：
 然后我们把这个发音词典存到硬盘上就可以了。
 
 ```python
-dict_file = r"C:\Users\samfi\Downloads\cv_yue\cv-corpus-17.0-2024-03-15\yue\yue_dict.txt" # 替换为你电脑上的路径
+dict_file = r"C:\Users\samfi\Downloads\yue\yue_dict.txt" # 替换为你电脑上的路径
 with open(dict_file, 'w') as f:
     for entry in yue_dict:
         f.write(entry + '\n')
