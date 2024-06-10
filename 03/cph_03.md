@@ -1,3 +1,4 @@
+#! https://zhuanlan.zhihu.com/p/702500767
 # 语音语料库研究方法入门03: 建立自己的语料库(2) - 批量创建TextGrid并训练模型
 
 上一讲我们已经创建好了一个可以用的发音词典，因此训练模型的前期准备三我们已经完成了两个：
@@ -133,7 +134,7 @@ def create_textgrid(snd_file, dur, speaker_id, transcript, output_folder):
 ```python
 output_folder = r"C:\Users\samfi\Downloads\yue\validated"
 for snd_file, dur, speaker_id, transcript in zip(valid_df.path, valid_df.dur, valid_df.speaker_id, valid_df.sentence_tok):
-    create_textgrid(snd_file, dur, speaker_id, transcript)
+    create_textgrid(snd_file, dur, speaker_id, transcript, output_folder)
 ```
 
 这一步运行完毕以后在prompt中输入：
